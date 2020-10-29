@@ -1,0 +1,195 @@
+<div class="container">
+
+  <div class="ui-g">
+
+    <div class="ui-g-12">
+      <h3>Dados do Veiculo</h3>
+    </div>
+
+    <div class="ui-g-6 ui-md-3 ui-fluid">
+      <label>Placa</label>
+      <input pInputText type="text" name="placa" #placa [(ngModel)]="formulario.placa">
+    </div>
+
+    <div class="ui-g-12 ui-md-3 ui-fluid">
+      <label>Chassi</label>
+      <input pInputText type="text" name="chassi" #chassi [(ngModel)]="formulario.chassi">
+    </div>
+
+    <div class="ui-g-12 ui-md-3 ui-fluid">
+      <label>Renavam</label>
+      <input pInputText type="text" name="renavam" #renavam [(ngModel)]="formulario.renavam">
+    </div>
+
+    <div class="ui-g-12 ui-md-3 ui-fluid">
+      <label>Valor Recebido</label>
+      <input pInputText type="text" name="valorRe" placeholder="0,00"
+        required #valorRecebido [(ngModel)]="formulario.valorRecebido">
+    </div>
+
+    <div class="ui-g-12 ui-md-3 ui-fluid">
+      <label>Data Aquisição:</label>
+      <input pInputText type="text" name="DataAquisicao" dateFormat="dd/mm/yy" #dataAquisicao [(ngModel)]="formulario.dataAquisicao">
+    </div>
+
+    <div class="ui-g-12 ui-md-3 ui-fluid">
+      <label>Numero CRV</label>
+      <input pInputText type="text" name="crv"
+        required #numeroCRVariavel [(ngModel)]="formulario.numeroCRV">
+    </div>
+
+
+    <div class="ui-g-12 ui-md-3 ui-fluid">
+      <label>Data do Leilão:</label>
+      <input pInputText type="text" name="leilao" #dataLeilao [(ngModel)]="formulario.dataLeilao">
+    </div>
+
+    <div class="ui-g-12 ui-md-3 ui-fluid">
+      <label>UF de Origem</label>
+      <input pInputText type="text" name="uf" #cilindros [(ngModel)]="formulario.ufOrigem">
+    </div>
+
+    <div class="ui-g">
+        <div class="ui-g-12">
+          <h3>Dados do Adquirente/Arrendatário</h3>
+    </div>
+
+    <div class="ui-g-12 ui-md-3 ui-fluid">
+        <label>Nome do Adquirente/Arrendatário:</label>
+        <input pInputText type="text" name="nomeAd" #nomeAdquirente [(ngModel)]="formulario.nomeAdquirente">
+    </div>
+
+    <div class="ui-g-3 ui-md-3 ui-fluid">
+        <label>INFORME UM CNPJ</label>
+       <input pInputText type="text" name="cnpj" #cnpj [(ngModel)]="formulario.cnpj" readonly="readonly">
+    </div>
+
+    <div class="ui-g-9 ui-md-3 ui-fluid">
+        <label>CNPJ do Adq./Arrendatário:</label>
+        <input pInputText type="text" name="cnpjNu" #cnpjNumero [(ngModel)]="formulario.cnpjNumero">
+      </div>
+
+      <div class="ui-g-12 ui-md-3 ui-fluid">
+        <label>Município do Emplacamento:</label>
+        <input pInputText type="text" name="municipio" #cnpjNumero [(ngModel)]="formulario.municipioEmplacamento">
+      </div>
+
+      <div class="ui-g">
+        <div class="ui-g-12">
+          <h3>Endereço do Adquirente/Arrendatário</h3>
+    </div>
+
+    <div class="ui-g-6 ui-md-3 ui-fluid">
+      <label>CEP:</label>
+      <input pInputText type="text" name="cep" #cep [(ngModel)]="formulario.cep">
+    </div>
+
+    <div class="ui-g-6 ui-md-3 ui-fluid">
+        <label>Endereço:</label>
+        <input pInputText type="text" name="endereco" #endereco [(ngModel)]="formulario.endereco">
+      </div>
+
+      <div class="ui-g-3 ui-md-3 ui-fluid">
+        <label>Numero:</label>
+        <input pInputText type="text" name="numeroEd" #numero [(ngModel)]="formulario.numero">
+      </div>
+
+      <div class="ui-g-9 ui-md-3 ui-fluid">
+        <label>Complemento:</label>
+        <input pInputText type="text" name="complemento" #complemento [(ngModel)]="formulario.complemento">
+      </div>
+
+      <div class="ui-g-12 ui-md-3 ui-fluid">
+        <label>Bairro:</label>
+        <input pInputText type="text" name="bairro" #bairro [(ngModel)]="formulario.bairro">
+      </div>
+
+      <div class="ui-g-12">
+        <h3>Endereço para Correspondência</h3>
+      </div>
+
+      <div class="ui-g-12 ui-md-3 ui-fluid">
+          <label>Endereço de Correspondência igual ao Residencial?</label>
+          <input pInputText type="text" name="residencial" #cnpjNumero [(ngModel)]="formulario.enderecoCorrespondencia">
+      </div>
+
+      <div class="ui-g-12">
+        <h3>Dados do Proprietário Anterior</h3>
+      </div>
+
+      <div class="ui-g-3 ui-md-3 ui-fluid">
+        <label>CPF / CNPJ</label>
+        <input pInputText type="text" name="cpf" #cnpjNumero [(ngModel)]="formulario.cpf">
+      </div>
+
+      <div class="ui-g-9 ui-md-3 ui-fluid">
+        <label>CPF/CNPJ do Proprietário Anterior:</label>
+        <input pInputText type="text" name="cpfNu" #cpfNumero [(ngModel)]="formulario.cpfNumero">
+      </div>
+
+      <div class="ui-g-12">
+        <h3>Motivo Judicial/Perdimento</h3>
+      </div>
+
+      <div class="ui-g-12 ui-md-3 ui-fluid">
+        <label>Motivo Judicial/Perdimento:</label>
+        <input pInputText type="text" name="judicial" #cnpjNumero [(ngModel)]="formulario.motivoJudicial">
+      </div>
+
+      <div class="ui-g-12 ui-md-3 ui-fluid">
+        <label>Número da Ordem Judicial:</label>
+        <input pInputText type="text" name="ordem" #cpfNumero [(ngModel)]="formulario.ordemJudicial">
+      </div>
+
+      <div class="ui-g-12">
+        <h3>Modalidade de Financiamento e Dados do Veículo</h3>
+      </div>
+
+
+      <div class="ui-g-6 ui-md-3 ui-fluid">
+        <label>Modalidade de Financiamento:</label>
+        <input pInputText type="text" name="financiamento" #cnpjNumero [(ngModel)]="formulario.financiamento">
+      </div>
+
+      <div class="ui-g-6 ui-md-3 ui-fluid">
+        <label>Categoria:</label>
+        <input pInputText type="text" name="categ" #cnpjNumero [(ngModel)]="formulario.categoria">
+      </div>
+
+      <div class="ui-g-3 ui-md-3 ui-fluid">
+        <label>N° de Cilindros:</label>
+        <input pInputText type="text" name="cilindros" #cilindros [(ngModel)]="formulario.cilindros">
+      </div>
+
+      <div class="ui-g-3 ui-md-3 ui-fluid">
+        <label>Isento de IPVA:</label>
+        <input pInputText type="text" name="ipva" #cnpjNumero [(ngModel)]="formulario.ipva">
+      </div>
+
+
+      <div class="ui-g-6 ui-md-3 ui-fluid">
+        <label>Atividade:</label>
+        <input pInputText type="text" name="atividade" #cnpjNumero [(ngModel)]="formulario.atividade">
+      </div>
+
+      <div class="ui-g-12">
+        <h3>Alterar Características do Veículo</h3>
+      </div>
+
+      <div class="ui-g-12 ui-md-3 ui-fluid">
+        <label>Deseja fazer alteração(ões) em alguma(s) característica(s) do veículo?</label>
+        <input pInputText type="text" name="caratc" #cnpjNumero [(ngModel)]="formulario.alterarCaracteristicas">
+      </div>
+
+      <div class="ui-g-12">
+        <button pButton type="submit" label="Cadastrar" (click)="adicionar()"></button>
+        <button pButton type="submit" label="Salvar" (click)="salvar()"></button>
+      </div>
+
+    </div>
+      <div class="ui-g">
+          <div class="ui-g-12">
+      </div>
+    </div>
+
+</div>
