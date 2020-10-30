@@ -5,28 +5,40 @@
         <h1>Tabela de Transferência de Propriedade de Veículo </h1>
       </div>
 
-  <div class="ui-g-12 ui-md-12">
-    <div class="ui-g-12">
-      <p-dataTable [value]="cadastros" [rows]="3" [paginator]="true">
+      <div class="card">
 
-        <p-column field="placa" header="Placa"></p-column>
-        <p-column field="chassi" header="Chassi"></p-column>
-        <p-column field="renavam" header="Renavam"></p-column>
-        <p-column field="nomeAdquirente" header="Nome do Adquirente"></p-column>
+        <p-table [value]="cadastros" [paginator]="true" [rows]="3" [showCurrentPageReport]="true"
+            currentPageReportTemplate="" [rowsPerPageOptions]="">
+            <ng-template let-cadastro pTemplate="header">
+              <tr>
+                <th>Placa</th>
+                <th>Chassi</th>
+                <th>Renavam</th>
+                <th>Nome do Adquirente</th>
+              </tr>
+            </ng-template>
+            <ng-template let-cadastro pTemplate="body" >
+              <tr>
+                <p-header field="placa" header="Placa" ></p-header>
+                    <td>oi</td>
+                    <td>{{cadastro.formulario}}</td>
+                    <td>{{cadastro.renavam}}</td>
+                    <td>{{cadastro.placa}}</td>
+                </tr>
+            </ng-template>
+            <ng-template  pTemplate="paginatorleft">
 
-        <p-column styleClass="col-acoes">
-          <ng-template let-cadastro="rowData" pTemplate="body">
-
-            <button pButton icon="fa-pencil" pTooltip="Editar" tooltipPosition="top" [routerLink]="['/formulario', cadastro.id]"></button>
-            <button pButton icon="fa-trash" pTooltip="Excluir" tooltipPosition="top" (click)="excluir(cadastro.id)"></button>
-            <button pButton icon="fa-file" pTooltip="Gerar PDF" tooltipPosition="top" (click)="transferenciaPdf(cadastro)"></button>
-            <!-- <button pButton icon="fa-download" pTooltip="Abrir PDF" tooltipPosition="top" (click)="abrirPDF(cadastro)"></button> -->
-          </ng-template>
-        </p-column>
-      </p-dataTable>
+            </ng-template>
+            <ng-template let-cadastro="rowData" pTemplate="paginatorright">
+              <p-button type="button" icon="pi pi-pencil" styleClass="p-button-text"></p-button>
+              <p-button type="button" icon="pi pi-trash" styleClass="p-button-text"></p-button>
+              <p-button type="button" icon="pi pi-file" styleClass="p-button-text" (click)="transferenciaPdf(cadastro)"></p-button>
+            </ng-template>
+        </p-table>
     </div>
 
-    <div class="ui-g-12">
+
+    <div class="ui-g-6 ui-md-12">
       <a pButton label="Nova Transferencia" routerLink="/formulario"></a>
     </div>
 

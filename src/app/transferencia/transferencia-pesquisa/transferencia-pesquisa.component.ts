@@ -15,7 +15,6 @@ export class TransferenciaPesquisaComponent implements OnInit {
   constructor(
     private transferenciaCadastroService: TransferenciaCadastroService,
 
-
     //private notif: NotificationsService
   ) {
 
@@ -43,6 +42,9 @@ export class TransferenciaPesquisaComponent implements OnInit {
   consultar() {
     this.transferenciaCadastroService.consultar()
       .then((dados: Transferencia[]) => {
+
+        console.error(dados);
+
         this.cadastros = dados;
     })
   }

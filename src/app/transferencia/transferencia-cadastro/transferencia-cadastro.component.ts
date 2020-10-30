@@ -38,7 +38,7 @@ export class Formulario {
 }
 
 @Component({
-  selector: 'app-root',
+  selector: 'app-transferencia-cadastro',
   templateUrl: './transferencia-cadastro.component.html',
   styleUrls: ['./transferencia-cadastro.component.css']
 })
@@ -88,14 +88,15 @@ export class TransferenciaCadastroComponent implements OnInit {
   }
 
   salvar(form: FormControl) {
-    if (this.editando) {
-      this.atualizar(form);
-    } else {
-      this.adicionar(form);
-    }
+    // if (this.editando) {
+    //   this.atualizar(form);
+    // } else {
+    //   this.adicionar(form);
+    // }
   }
 
   adicionar(form: FormControl) {
+    console.log("click");
     console.warn('formulario', this.formulario);
     this.transferenciaCadastroService.adicionar( this.formulario )
     .then(cadastros => {

@@ -1,4 +1,4 @@
-import {HttpClient} from '@angular/common/http'
+import { HttpClient } from '@angular/common/http';
 import { Formulario } from './transferencia-cadastro/transferencia-cadastro.component';
 import { environment } from './../../environments/environment';
 import { Transferencia } from './../model/transferencia.model';
@@ -7,7 +7,6 @@ import { map } from 'rxjs/operators';
 
 import { Injectable } from '@angular/core';
 
-import 'rxjs/add/operator/toPromise';
 
 @Injectable()
 export class TransferenciaCadastroService {
@@ -21,7 +20,7 @@ export class TransferenciaCadastroService {
   consultar(): Promise<any> {
     return this.http.get('http://localhost:8080/api')
     .toPromise()
-    .then(response => console.log(response))
+    .then(response => {return response});
   }
 
   consultarId(id: number): Promise<Formulario> {
