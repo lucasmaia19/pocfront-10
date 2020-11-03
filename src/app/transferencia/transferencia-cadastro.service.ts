@@ -51,7 +51,7 @@ export class TransferenciaCadastroService {
 
   atualizar(formulario: Formulario): Promise<Formulario> {
     console.log("id service", formulario)
-   return this.http.put(`https://pocapidetran.herokuapp.com/api/${formulario.id}`, formulario)
+   return this.http.put(`http://localhost:8080/api/${formulario.id}`, formulario)
     .toPromise()
     .then(response => {
       const cadastro = response as Formulario

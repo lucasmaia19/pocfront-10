@@ -8,7 +8,8 @@
 
     <div class="ui-g-6 ui-md-3 ui-fluid">
       <label>Placa</label>
-      <input pInputText type="text" name="placa" #placa [(ngModel)]="formulario.placa">
+      <!-- <p-inputMask pInputText [(ngModel)]="formulario.placa" mask="99-9999"></p-inputMask> -->
+      <p-inputMask pInputText type="text" mask="a**-9999" name="placa" #placa [(ngModel)]="formulario.placa"></p-inputMask>
     </div>
 
     <div class="ui-g-12 ui-md-3 ui-fluid">

@@ -1,3 +1,4 @@
+import { MessageService } from 'primeng/api';
 import { TransferenciaCadastroService } from './../transferencia-cadastro.service';
 
 import { Component, OnInit } from '@angular/core';
@@ -53,6 +54,7 @@ export class TransferenciaCadastroComponent implements OnInit {
     private transferenciaCadastroService: TransferenciaCadastroService,
     private route: ActivatedRoute,
     private router: Router,
+    private messageService: MessageService
     ) { }
 
   ngOnInit() {
@@ -88,19 +90,19 @@ export class TransferenciaCadastroComponent implements OnInit {
   }
 
   salvar(form: FormControl) {
-    // if (this.editando) {
-    //   this.atualizar(form);
-    // } else {
-    //   this.adicionar(form);
-    // }
+    if (this.editando) {
+      this.atualizar(form);
+    } else {
+      this.adicionar(form);
+    }
   }
 
   adicionar(form: FormControl) {
-    console.log("click");
     console.warn('formulario', this.formulario);
     this.transferenciaCadastroService.adicionar( this.formulario )
     .then(cadastros => {
       // this.toasty.success(`CADASTRO COM A PLACA "${cadastros.placa}" ADICIONADO`);
+      this.messageService.add({severity:'success', summary:'Cadastro adicionado com sucesso!'});
       // alert(`Cadastro "${cadastros.placa}" adicionado com o cod ${cadastros.id}`);
       this.consultar();
 
@@ -113,10 +115,8 @@ export class TransferenciaCadastroComponent implements OnInit {
 
     this.transferenciaCadastroService.atualizar(this.formulario)
       .then(() => {
-        // this.toasty.success('CADASTRO ATUALIZADO COM SUCESSO!')
-        // alert('Cidade alterada com sucesso!');
-
         this.router.navigate(['']);
+        this.messageService.add({severity:'success', summary:'Cadastro Atualizado com Sucesso!'});
       });
   }
 

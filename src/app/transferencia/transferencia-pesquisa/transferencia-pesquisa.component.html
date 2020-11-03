@@ -9,7 +9,7 @@
 
         <p-table [value]="cadastros" [paginator]="true" [rows]="3" [showCurrentPageReport]="true"
             currentPageReportTemplate="" [rowsPerPageOptions]="">
-            <ng-template let-cadastro pTemplate="header">
+            <ng-template pTemplate="header">
               <tr>
                 <th>Placa</th>
                 <th>Chassi</th>
@@ -19,24 +19,23 @@
             </ng-template>
             <ng-template let-cadastro pTemplate="body" >
               <tr>
-                <p-header field="placa" header="Placa" ></p-header>
-                    <td>oi</td>
-                    <td>{{cadastro.formulario}}</td>
-                    <td>{{cadastro.renavam}}</td>
                     <td>{{cadastro.placa}}</td>
+                    <td>{{cadastro.chassi}}</td>
+                    <td>{{cadastro.renavam}}</td>
+                    <td>{{cadastro.nomeAdquirente}}</td>
+                    <p-button type="button" icon="pi pi-pencil" styleClass="p-button-text" [routerLink]="['/formulario', cadastro.id]"></p-button>
+                    <p-button type="button" icon="pi pi-trash" styleClass="p-button-text" (click)="excluir(cadastro.id)"></p-button>
+                    <p-button type="button" icon="pi pi-file" styleClass="p-button-text" (click)="transferenciaPdf(cadastro)"></p-button>
                 </tr>
+
             </ng-template>
             <ng-template  pTemplate="paginatorleft">
 
             </ng-template>
             <ng-template let-cadastro="rowData" pTemplate="paginatorright">
-              <p-button type="button" icon="pi pi-pencil" styleClass="p-button-text"></p-button>
-              <p-button type="button" icon="pi pi-trash" styleClass="p-button-text"></p-button>
-              <p-button type="button" icon="pi pi-file" styleClass="p-button-text" (click)="transferenciaPdf(cadastro)"></p-button>
             </ng-template>
         </p-table>
     </div>
-
 
     <div class="ui-g-6 ui-md-12">
       <a pButton label="Nova Transferencia" routerLink="/formulario"></a>

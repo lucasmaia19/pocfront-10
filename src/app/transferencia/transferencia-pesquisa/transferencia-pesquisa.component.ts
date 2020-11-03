@@ -1,5 +1,6 @@
 import { Transferencia } from './../../model/transferencia.model';
 import { TransferenciaCadastroService } from '../transferencia-cadastro.service';
+import { MessageService, ConfirmationService } from 'primeng/api';
 
 import { Component, OnInit } from '@angular/core';
 
@@ -14,7 +15,8 @@ export class TransferenciaPesquisaComponent implements OnInit {
 
   constructor(
     private transferenciaCadastroService: TransferenciaCadastroService,
-
+    private messageService: MessageService,
+    private confirmationService: ConfirmationService
     //private notif: NotificationsService
   ) {
 
@@ -26,24 +28,26 @@ export class TransferenciaPesquisaComponent implements OnInit {
 
   excluir(id: number) {
 
-    //this.notif.info('Titulo', 'Mensagem');
+    this.confirmationService.confirm({
+      message: 'Tem certeza que deseja excluir?',
+      accept: () => {
+          console.log(id)
+          this.transferenciaCadastroService.excluir(id)
+          .then(() => {
+              this.consultar();
+              this.messageService.add({severity:'success', summary:'Cadastro excluído com sucesso!'});
+          });
 
-    /*
-    console.log(id);
-    this.transferenciaCadastroService.excluir(id)
-      .then(() => {
-        this.toasty.success('CADASTRO EXCLUÍDO COM SUCESSO!')
-        // alert('Cadastro excluída com sucesso!');
-        this.consultar();
-      });
-    */
+      }
+    })
+
   }
 
   consultar() {
     this.transferenciaCadastroService.consultar()
       .then((dados: Transferencia[]) => {
 
-        console.error(dados);
+        // console.error(dados);
 
         this.cadastros = dados;
     })
@@ -52,6 +56,7 @@ export class TransferenciaPesquisaComponent implements OnInit {
   transferenciaPdf(transferencia: Transferencia) {
 
     console.log('transferenciaPdf executado ...');
+    this.messageService.add({severity:'info', summary:'PDF Sendo Gerado, ESPERE'});
     // this.toasty.success('PDF SENDO GERADO, ESPERE!');
     // alert("PDF SENDO GERADO");
     console.log(transferencia);
@@ -59,6 +64,8 @@ export class TransferenciaPesquisaComponent implements OnInit {
     this.transferenciaCadastroService.transferenciaPdf(transferencia)
       .then(response => {
         console.info('retorno do metodo: ', this.abrirPDF())
+
+
         // this.toasty.success('PDF GERADO!')
         // this.toasty.success('AGUARDE!')
         // alert("ABRA O PDF!")
@@ -72,6 +79,7 @@ export class TransferenciaPesquisaComponent implements OnInit {
 
     this.transferenciaCadastroService.abrirPDF()
     .then(response => {
+      this.messageService.add({severity:'info', summary:'Espere 30 segundos'});
       console.info('retorno do metodo: ', response)
 
       const fileURL = URL.createObjectURL(response);
