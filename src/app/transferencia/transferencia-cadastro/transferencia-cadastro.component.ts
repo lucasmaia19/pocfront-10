@@ -10,7 +10,7 @@ export class Formulario {
   placa: string;
   chassi: string;
   renavam: string;
-  valorRecebido: string;
+  valorRecebido: number;
   dataAquisicao: Date;
   numeroCRV: string;
   dataLeilao: Date;
@@ -64,6 +64,7 @@ export class TransferenciaCadastroComponent implements OnInit {
       this.carregarFormulario(idFormulario);
     } else {
       this.formulario.cnpj = "CNPJ";
+      this.formulario.enderecoCorrespondencia = "Sim"
     }
 
     this.consultar();

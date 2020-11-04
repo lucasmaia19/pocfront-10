@@ -43,10 +43,13 @@ export class TransferenciaCadastroService {
     .then(response => response);
   }
 
-  excluir(id: number): Promise<void> {
+  excluir(id: number): Promise<any> {
      return this.http.delete(`http://localhost:8080/api/${id}`)
      .toPromise()
-     .then(() => null)
+     .then(response => {
+       console.warn(response);
+       return response;
+      });
   }
 
   atualizar(formulario: Formulario): Promise<Formulario> {
@@ -54,6 +57,7 @@ export class TransferenciaCadastroService {
    return this.http.put(`http://localhost:8080/api/${formulario.id}`, formulario)
     .toPromise()
     .then(response => {
+
       const cadastro = response as Formulario
 
       return cadastro;

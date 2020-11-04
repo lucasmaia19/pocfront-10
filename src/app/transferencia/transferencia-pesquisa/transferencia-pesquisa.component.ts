@@ -26,16 +26,34 @@ export class TransferenciaPesquisaComponent implements OnInit {
     this.consultar();
   }
 
+
+    // excluir(id: number) {
+
+      // console.log(id)
+      // this.transferenciaCadastroService.excluir(id)
+      // .then(() => {
+        // console.log("apagado", id)
+          // this.consultar();
+          // this.messageService.add({severity:'success', summary:'Cadastro excluído com sucesso!'});
+      // });
+
+  // }
+
+
+
+
   excluir(id: number) {
 
     this.confirmationService.confirm({
-      message: 'Tem certeza que deseja excluir?',
+      message: 'Tem certeza que deseja excluir???',
       accept: () => {
           console.log(id)
           this.transferenciaCadastroService.excluir(id)
-          .then(() => {
+
+          .then(response => {
+            console.warn(response)
               this.consultar();
-              this.messageService.add({severity:'success', summary:'Cadastro excluído com sucesso!'});
+              this.messageService.add({severity:'success', summary: response.TestoDaResposta});
           });
 
       }
@@ -44,6 +62,7 @@ export class TransferenciaPesquisaComponent implements OnInit {
   }
 
   consultar() {
+    console.log("fui chamado")
     this.transferenciaCadastroService.consultar()
       .then((dados: Transferencia[]) => {
 

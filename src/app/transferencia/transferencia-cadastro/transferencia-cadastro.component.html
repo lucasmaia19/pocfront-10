@@ -9,40 +9,40 @@
     <div class="ui-g-6 ui-md-3 ui-fluid">
       <label>Placa</label>
       <!-- <p-inputMask pInputText [(ngModel)]="formulario.placa" mask="99-9999"></p-inputMask> -->
-      <p-inputMask pInputText type="text" mask="a**-9999" name="placa" #placa [(ngModel)]="formulario.placa"></p-inputMask>
+      <p-inputMask type="text" mask="a**-9*99" name="placa" #placa [(ngModel)]="formulario.placa"></p-inputMask>
     </div>
 
     <div class="ui-g-12 ui-md-3 ui-fluid">
       <label>Chassi</label>
-      <input pInputText type="text" name="chassi" #chassi [(ngModel)]="formulario.chassi">
+      <p-inputMask type="text" mask="*****************" name="chassi" #chassi [(ngModel)]="formulario.chassi"></p-inputMask>
     </div>
 
     <div class="ui-g-12 ui-md-3 ui-fluid">
       <label>Renavam</label>
-      <input pInputText type="text" name="renavam" #renavam [(ngModel)]="formulario.renavam">
+      <p-inputMask type="text" mask="99999999999" name="renavam" #renavam [(ngModel)]="formulario.renavam"></p-inputMask>
     </div>
 
     <div class="ui-g-12 ui-md-3 ui-fluid">
       <label>Valor Recebido</label>
-      <input pInputText type="text" name="valorRe" placeholder="0,00"
-        required #valorRecebido [(ngModel)]="formulario.valorRecebido">
+      <p-inputNumber mode="decimal" locale="de-DE" [minFractionDigits]="2"
+         #valorRecebido [(ngModel)]="formulario.valorRecebido" ></p-inputNumber>
     </div>
 
     <div class="ui-g-12 ui-md-3 ui-fluid">
       <label>Data Aquisição:</label>
-      <input pInputText type="text" name="DataAquisicao" dateFormat="dd/mm/yy" #dataAquisicao [(ngModel)]="formulario.dataAquisicao">
+      <p-inputMask type="text" name="DataAquisicao" mask="99999999" dateFormat="dd/mm/yy" #dataAquisicao [(ngModel)]="formulario.dataAquisicao"></p-inputMask>
     </div>
 
     <div class="ui-g-12 ui-md-3 ui-fluid">
       <label>Numero CRV</label>
-      <input pInputText type="text" name="crv"
-        required #numeroCRVariavel [(ngModel)]="formulario.numeroCRV">
+      <p-inputMask type="text" name="crv" mask="999999999999"
+        required #numeroCRVariavel [(ngModel)]="formulario.numeroCRV"></p-inputMask>
     </div>
 
 
     <div class="ui-g-12 ui-md-3 ui-fluid">
       <label>Data do Leilão:</label>
-      <input pInputText type="text" name="leilao" #dataLeilao [(ngModel)]="formulario.dataLeilao">
+      <p-inputMask type="text" name="leilao" mask="99999999" #dataLeilao [(ngModel)]="formulario.dataLeilao"></p-inputMask>
     </div>
 
     <div class="ui-g-12 ui-md-3 ui-fluid">
@@ -57,17 +57,17 @@
 
     <div class="ui-g-12 ui-md-3 ui-fluid">
         <label>Nome do Adquirente/Arrendatário:</label>
-        <input pInputText type="text" name="nomeAd" #nomeAdquirente [(ngModel)]="formulario.nomeAdquirente">
+        <input pInputText name="nomeAd" #nomeAdquirente [(ngModel)]="formulario.nomeAdquirente">
     </div>
 
     <div class="ui-g-3 ui-md-3 ui-fluid">
-        <label>INFORME UM CNPJ</label>
+        <label>CNPJ</label>
        <input pInputText type="text" name="cnpj" #cnpj [(ngModel)]="formulario.cnpj" readonly="readonly">
     </div>
 
     <div class="ui-g-9 ui-md-3 ui-fluid">
         <label>CNPJ do Adq./Arrendatário:</label>
-        <input pInputText type="text" name="cnpjNu" #cnpjNumero [(ngModel)]="formulario.cnpjNumero">
+        <p-inputMask type="text" mask="99999999999999" name="cnpjNu" #cnpjNumero [(ngModel)]="formulario.cnpjNumero"></p-inputMask>
       </div>
 
       <div class="ui-g-12 ui-md-3 ui-fluid">
@@ -82,7 +82,7 @@
 
     <div class="ui-g-6 ui-md-3 ui-fluid">
       <label>CEP:</label>
-      <input pInputText type="text" name="cep" #cep [(ngModel)]="formulario.cep">
+      <p-inputMask type="text" mask="99999-999" name="cep" #cep [(ngModel)]="formulario.cep"></p-inputMask>
     </div>
 
     <div class="ui-g-6 ui-md-3 ui-fluid">
@@ -92,7 +92,7 @@
 
       <div class="ui-g-3 ui-md-3 ui-fluid">
         <label>Numero:</label>
-        <input pInputText type="text" name="numeroEd" #numero [(ngModel)]="formulario.numero">
+        <input pInputText name="numeroEd" #numero [(ngModel)]="formulario.numero">
       </div>
 
       <div class="ui-g-9 ui-md-3 ui-fluid">
@@ -111,7 +111,7 @@
 
       <div class="ui-g-12 ui-md-3 ui-fluid">
           <label>Endereço de Correspondência igual ao Residencial?</label>
-          <input pInputText type="text" name="residencial" #cnpjNumero [(ngModel)]="formulario.enderecoCorrespondencia">
+          <input pInputText type="text" name="cnpj" #cnpj [(ngModel)]="formulario.enderecoCorrespondencia" readonly="readonly">
       </div>
 
       <div class="ui-g-12">
@@ -125,7 +125,7 @@
 
       <div class="ui-g-9 ui-md-3 ui-fluid">
         <label>CPF/CNPJ do Proprietário Anterior:</label>
-        <input pInputText type="text" name="cpfNu" #cpfNumero [(ngModel)]="formulario.cpfNumero">
+        <input pInputText type="" name="cpfNu" #cpfNumero [(ngModel)]="formulario.cpfNumero">
       </div>
 
       <div class="ui-g-12">
@@ -159,7 +159,7 @@
 
       <div class="ui-g-3 ui-md-3 ui-fluid">
         <label>N° de Cilindros:</label>
-        <input pInputText type="text" name="cilindros" #cilindros [(ngModel)]="formulario.cilindros">
+        <p-inputNumber type="text" name="cilindros" #cilindros [(ngModel)]="formulario.cilindros"></p-inputNumber>
       </div>
 
       <div class="ui-g-3 ui-md-3 ui-fluid">

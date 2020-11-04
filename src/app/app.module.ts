@@ -19,6 +19,8 @@ import { ConfirmationService } from 'primeng/api';
 import {ConfirmDialogModule } from 'primeng/confirmdialog';
 import { TableModule } from 'primeng/table';
 import { InputMaskModule } from 'primeng/inputmask';
+import {InputNumberModule} from 'primeng/inputnumber';
+import {InputTextModule} from 'primeng/inputtext';
 
 
 const routes: Routes = [
@@ -47,7 +49,9 @@ const routes: Routes = [
     ButtonModule,
     ToastModule,
     ConfirmDialogModule,
-    InputMaskModule
+    InputMaskModule,
+    InputNumberModule,
+    InputTextModule
 
   ],
   providers: [TransferenciaCadastroService, MessageService, ConfirmationService],

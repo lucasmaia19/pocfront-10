@@ -3,7 +3,7 @@ export class Transferencia {
   placa: string;
   chassi: string;
   renavam: string;
-  valorRecebido: string;
+  valorRecebido: number;
   dataAquisicao: Date;
   numeroCRV: string;
   dataLeilao: Date;
