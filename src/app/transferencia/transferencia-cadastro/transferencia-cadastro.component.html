@@ -1,197 +1,189 @@
 <div class="container">
+  <div class="p-field p-fluid p-formgrid p-grid">
 
-  <div class="ui-g">
+      <div class="p-field p-col-12 p-md-12">
+        <h3>Dados do Veiculo</h3>
+      </div>
 
-    <div class="ui-g-12">
-      <h3>Dados do Veiculo</h3>
-    </div>
+      <div class="p-field p-col-6 p-md-3">
+        <label>Placa</label>
+        <p-inputMask type="text" mask="a**-9*99" name="placa" #placa [(ngModel)]="formulario.placa" required></p-inputMask>
+      </div>
 
-    <div class="ui-g-6 ui-md-3 ui-fluid">
-      <label>Placa</label>
-      <!-- <p-inputMask pInputText [(ngModel)]="formulario.placa" mask="99-9999"></p-inputMask> -->
-      <p-inputMask type="text" mask="a**-9*99" name="placa" #placa [(ngModel)]="formulario.placa"></p-inputMask>
-    </div>
+      <div class="p-field p-col-6 p-md-3">
+        <label>Chassi</label>
+        <p-inputMask type="text" mask="*****************" name="chassi" #chassi [(ngModel)]="formulario.chassi" required></p-inputMask>
+      </div>
 
-    <div class="ui-g-12 ui-md-3 ui-fluid">
-      <label>Chassi</label>
-      <p-inputMask type="text" mask="*****************" name="chassi" #chassi [(ngModel)]="formulario.chassi"></p-inputMask>
-    </div>
+      <div class="p-field p-col-6 p-md-3">
+        <label>Renavam</label>
+        <p-inputMask type="text" mask="99999999999" name="renavam" #renavam [(ngModel)]="formulario.renavam" required></p-inputMask>
+      </div>
 
-    <div class="ui-g-12 ui-md-3 ui-fluid">
-      <label>Renavam</label>
-      <p-inputMask type="text" mask="99999999999" name="renavam" #renavam [(ngModel)]="formulario.renavam"></p-inputMask>
-    </div>
+      <div class="p-field p-col-6 p-md-3">
+        <label>Valor Recebido</label>
+        <p-inputNumber mode="decimal" locale="de-DE" [minFractionDigits]="2"
+          #valorRecebido [(ngModel)]="formulario.valorRecebido" required></p-inputNumber>
+      </div>
 
-    <div class="ui-g-12 ui-md-3 ui-fluid">
-      <label>Valor Recebido</label>
-      <p-inputNumber mode="decimal" locale="de-DE" [minFractionDigits]="2"
-         #valorRecebido [(ngModel)]="formulario.valorRecebido" ></p-inputNumber>
-    </div>
+      <div class="p-field p-col-6 p-md-3">
+        <label>Data Aquisição:</label>
+        <p-inputMask type="text" name="DataAquisicao" mask="99999999" dateFormat="dd/mm/yy" #dataAquisicao [(ngModel)]="formulario.dataAquisicao" required></p-inputMask>
+      </div>
 
-    <div class="ui-g-12 ui-md-3 ui-fluid">
-      <label>Data Aquisição:</label>
-      <p-inputMask type="text" name="DataAquisicao" mask="99999999" dateFormat="dd/mm/yy" #dataAquisicao [(ngModel)]="formulario.dataAquisicao"></p-inputMask>
-    </div>
+      <div class="p-field p-col-6 p-md-3">
+        <label>Numero CRV</label>
+        <p-inputMask type="text" name="crv" mask="999999999999"
+          #numeroCRVariavel [(ngModel)]="formulario.numeroCRV"></p-inputMask>
+      </div>
 
-    <div class="ui-g-12 ui-md-3 ui-fluid">
-      <label>Numero CRV</label>
-      <p-inputMask type="text" name="crv" mask="999999999999"
-        required #numeroCRVariavel [(ngModel)]="formulario.numeroCRV"></p-inputMask>
-    </div>
+      <div class="p-field p-col-6 p-md-3">
+        <label>Data do Leilão:</label>
+        <p-inputMask type="text" name="leilao" mask="99999999" #dataLeilao [(ngModel)]="formulario.dataLeilao"></p-inputMask>
+      </div>
 
+      <div class="p-field p-col-6 p-md-3">
+        <label>UF de Origem</label>
+        <p-inputMask type="text" name="uf" mask="" #cilindros [(ngModel)]="formulario.ufOrigem" required></p-inputMask>
+      </div>
 
-    <div class="ui-g-12 ui-md-3 ui-fluid">
-      <label>Data do Leilão:</label>
-      <p-inputMask type="text" name="leilao" mask="99999999" #dataLeilao [(ngModel)]="formulario.dataLeilao"></p-inputMask>
-    </div>
+      <div class="p-field p-col-12">
+        <h3>Dados do Adquirente/Arrendatário</h3>
+      </div>
 
-    <div class="ui-g-12 ui-md-3 ui-fluid">
-      <label>UF de Origem</label>
-      <input pInputText type="text" name="uf" #cilindros [(ngModel)]="formulario.ufOrigem">
-    </div>
-
-    <div class="ui-g">
-        <div class="ui-g-12">
-          <h3>Dados do Adquirente/Arrendatário</h3>
-    </div>
-
-    <div class="ui-g-12 ui-md-3 ui-fluid">
+      <div class="p-field p-col-6 p-md-3">
         <label>Nome do Adquirente/Arrendatário:</label>
-        <input pInputText name="nomeAd" #nomeAdquirente [(ngModel)]="formulario.nomeAdquirente">
-    </div>
+        <p-inputMask name="nomeAd" mask="" #nomeAdquirente [(ngModel)]="formulario.nomeAdquirente" required></p-inputMask>
+      </div>
 
-    <div class="ui-g-3 ui-md-3 ui-fluid">
+      <div class="p-field p-col-3 p-md-1">
         <label>CNPJ</label>
-       <input pInputText type="text" name="cnpj" #cnpj [(ngModel)]="formulario.cnpj" readonly="readonly">
-    </div>
+       <input pInputText type="text" name="cnpj" #cnpj [(ngModel)]="formulario.cnpj" readonly="readonly" required>
+      </div>
 
-    <div class="ui-g-9 ui-md-3 ui-fluid">
+      <div class="p-field p-col-6 p-md-3">
         <label>CNPJ do Adq./Arrendatário:</label>
-        <p-inputMask type="text" mask="99999999999999" name="cnpjNu" #cnpjNumero [(ngModel)]="formulario.cnpjNumero"></p-inputMask>
+        <p-inputMask type="text" mask="99999999999999" name="cnpjNu" #cnpjNumero [(ngModel)]="formulario.cnpjNumero" required></p-inputMask>
       </div>
 
-      <div class="ui-g-12 ui-md-3 ui-fluid">
+      <div class="p-field p-col-6 p-md-3">
         <label>Município do Emplacamento:</label>
-        <input pInputText type="text" name="municipio" #cnpjNumero [(ngModel)]="formulario.municipioEmplacamento">
+        <p-inputMask type="text" mask="" name="municipio" #cnpjNumero [(ngModel)]="formulario.municipioEmplacamento" required></p-inputMask>
       </div>
 
-      <div class="ui-g">
-        <div class="ui-g-12">
-          <h3>Endereço do Adquirente/Arrendatário</h3>
-    </div>
+      <div class="p-field p-col-12">
+        <h3>Endereço do Adquirente/Arrendatário</h3>
+      </div>
 
-    <div class="ui-g-6 ui-md-3 ui-fluid">
-      <label>CEP:</label>
-      <p-inputMask type="text" mask="99999-999" name="cep" #cep [(ngModel)]="formulario.cep"></p-inputMask>
-    </div>
+      <div class="p-field p-col-6 p-md-3">
+        <label>CEP:</label>
+        <p-inputMask type="text" mask="99999-999" mask="" name="cep" #cep [(ngModel)]="formulario.cep" required></p-inputMask>
+      </div>
 
-    <div class="ui-g-6 ui-md-3 ui-fluid">
+      <div class="p-field p-col-6 p-md-3">
         <label>Endereço:</label>
-        <input pInputText type="text" name="endereco" #endereco [(ngModel)]="formulario.endereco">
+        <p-inputMask type="text" mask="" name="endereco" #endereco [(ngModel)]="formulario.endereco" required></p-inputMask>
       </div>
 
-      <div class="ui-g-3 ui-md-3 ui-fluid">
+      <div class="p-field p-col-6 p-md-1">
         <label>Numero:</label>
-        <input pInputText name="numeroEd" #numero [(ngModel)]="formulario.numero">
+        <p-inputMask name="numeroEd" mask="" #numero [(ngModel)]="formulario.numero" required></p-inputMask>
       </div>
 
-      <div class="ui-g-9 ui-md-3 ui-fluid">
+      <div class="p-field p-col-6 p-md-3">
         <label>Complemento:</label>
-        <input pInputText type="text" name="complemento" #complemento [(ngModel)]="formulario.complemento">
+        <p-inputMask type="text" mask="" name="complemento" #complemento [(ngModel)]="formulario.complemento"></p-inputMask>
       </div>
 
-      <div class="ui-g-12 ui-md-3 ui-fluid">
+      <div class="p-field p-col-6 p-md-3">
         <label>Bairro:</label>
-        <input pInputText type="text" name="bairro" #bairro [(ngModel)]="formulario.bairro">
+        <p-inputMask type="text" mask="" name="bairro" #bairro [(ngModel)]="formulario.bairro" required></p-inputMask>
       </div>
 
-      <div class="ui-g-12">
+      <div class="p-field p-col-12 p-md-12">
         <h3>Endereço para Correspondência</h3>
       </div>
 
-      <div class="ui-g-12 ui-md-3 ui-fluid">
+      <div class="p-field p-col-6 p-md-3">
           <label>Endereço de Correspondência igual ao Residencial?</label>
           <input pInputText type="text" name="cnpj" #cnpj [(ngModel)]="formulario.enderecoCorrespondencia" readonly="readonly">
       </div>
 
-      <div class="ui-g-12">
+      <div class="p-field p-col-12">
         <h3>Dados do Proprietário Anterior</h3>
       </div>
 
-      <div class="ui-g-3 ui-md-3 ui-fluid">
+      <div class="p-field p-col-6 p-md-2">
         <label>CPF / CNPJ</label>
-        <input pInputText type="text" name="cpf" #cnpjNumero [(ngModel)]="formulario.cpf">
+        <p-inputMask type="text" name="cpf" mask="" #cnpjNumero [(ngModel)]="formulario.cpf" required></p-inputMask>
       </div>
 
-      <div class="ui-g-9 ui-md-3 ui-fluid">
+      <div class="p-field p-col-6 p-md-3">
         <label>CPF/CNPJ do Proprietário Anterior:</label>
-        <input pInputText type="" name="cpfNu" #cpfNumero [(ngModel)]="formulario.cpfNumero">
+        <p-inputMask type="text" mask="" name="cpfNu" #cpfNumero [(ngModel)]="formulario.cpfNumero" required></p-inputMask>
       </div>
 
-      <div class="ui-g-12">
+      <div class="p-field p-col-12">
         <h3>Motivo Judicial/Perdimento</h3>
       </div>
 
-      <div class="ui-g-12 ui-md-3 ui-fluid">
+      <div class="p-field p-col-6 p-md-3">
         <label>Motivo Judicial/Perdimento:</label>
-        <input pInputText type="text" name="judicial" #cnpjNumero [(ngModel)]="formulario.motivoJudicial">
+        <p-inputMask type="text" name="judicial" mask="" #cnpjNumero [(ngModel)]="formulario.motivoJudicial" required></p-inputMask>
       </div>
 
-      <div class="ui-g-12 ui-md-3 ui-fluid">
+      <div class="p-field p-col-6 p-md-3">
         <label>Número da Ordem Judicial:</label>
-        <input pInputText type="text" name="ordem" #cpfNumero [(ngModel)]="formulario.ordemJudicial">
+        <p-inputMask type="text" name="ordem" mask="" #cpfNumero [(ngModel)]="formulario.ordemJudicial" required></p-inputMask>
       </div>
 
-      <div class="ui-g-12">
+      <div class="p-field p-col-12">
         <h3>Modalidade de Financiamento e Dados do Veículo</h3>
       </div>
 
-
-      <div class="ui-g-6 ui-md-3 ui-fluid">
+      <div class="p-field p-col-6 p-md-3">
         <label>Modalidade de Financiamento:</label>
-        <input pInputText type="text" name="financiamento" #cnpjNumero [(ngModel)]="formulario.financiamento">
+        <p-inputMask type="text" name="financiamento" mask="" #cnpjNumero [(ngModel)]="formulario.financiamento" required></p-inputMask>
       </div>
 
-      <div class="ui-g-6 ui-md-3 ui-fluid">
+      <div class="p-field p-col-6 p-md-3">
         <label>Categoria:</label>
-        <input pInputText type="text" name="categ" #cnpjNumero [(ngModel)]="formulario.categoria">
+        <p-inputMask type="text" name="categ" mask="" #cnpjNumero [(ngModel)]="formulario.categoria" required></p-inputMask>
       </div>
 
-      <div class="ui-g-3 ui-md-3 ui-fluid">
+      <div class="p-field p-col-6 p-md-3">
         <label>N° de Cilindros:</label>
-        <p-inputNumber type="text" name="cilindros" #cilindros [(ngModel)]="formulario.cilindros"></p-inputNumber>
+        <p-inputNumber type="text" name="cilindros" #cilindros [(ngModel)]="formulario.cilindros" required></p-inputNumber>
       </div>
 
-      <div class="ui-g-3 ui-md-3 ui-fluid">
+      <div class="p-field p-col-6 p-md-3">
         <label>Isento de IPVA:</label>
-        <input pInputText type="text" name="ipva" #cnpjNumero [(ngModel)]="formulario.ipva">
+        <p-inputMask type="text" name="ipva" mask="" #cnpjNumero [(ngModel)]="formulario.ipva" required></p-inputMask>
       </div>
 
 
-      <div class="ui-g-6 ui-md-3 ui-fluid">
+      <div class="p-field p-col-6 p-md-3">
         <label>Atividade:</label>
-        <input pInputText type="text" name="atividade" #cnpjNumero [(ngModel)]="formulario.atividade">
+        <p-inputMask type="text" name="atividade" mask="" #cnpjNumero [(ngModel)]="formulario.atividade" required></p-inputMask>
       </div>
 
-      <div class="ui-g-12">
+      <div class="p-field p-col-12">
         <h3>Alterar Características do Veículo</h3>
       </div>
 
-      <div class="ui-g-12 ui-md-3 ui-fluid">
+      <div class="p-field p-col-12 p-md-3">
         <label>Deseja fazer alteração(ões) em alguma(s) característica(s) do veículo?</label>
-        <input pInputText type="text" name="caratc" #cnpjNumero [(ngModel)]="formulario.alterarCaracteristicas">
+        <p-inputMask type="text" name="caratc" mask="" #cnpjNumero [(ngModel)]="formulario.alterarCaracteristicas" required></p-inputMask>
       </div>
 
-      <div class="ui-g-12">
+      <div class="p-field p-col-12 p-md-12"></div>
 
+      <div class="p-field p-col-2 p-md-2">
         <button pButton type="submit" label="Cadastrar" (click)="adicionar(null)"></button>
+      </div>
+      <div class="p-field p-col-2 p-md-2">
         <button pButton type="submit" label="Salvar" (click)="salvar(null)"></button>
       </div>
 
-    </div>
-      <div class="ui-g">
-          <div class="ui-g-12">
-      </div>
-    </div>
-
+  </div>
 </div>

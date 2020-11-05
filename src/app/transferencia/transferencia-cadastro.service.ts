@@ -1,12 +1,9 @@
 import { HttpClient } from '@angular/common/http';
+import { Injectable } from '@angular/core';
+
 import { Formulario } from './transferencia-cadastro/transferencia-cadastro.component';
 import { environment } from './../../environments/environment';
 import { Transferencia } from './../model/transferencia.model';
-
-import { map } from 'rxjs/operators';
-
-import { Injectable } from '@angular/core';
-
 
 @Injectable()
 export class TransferenciaCadastroService {
@@ -66,7 +63,6 @@ export class TransferenciaCadastroService {
 
   transferenciaPdf(transferencia: Transferencia): Promise<any> {
 
-
     console.warn('transferencia', transferencia);
 
     return this.http.post(this.transferenciaUrl, transferencia)
@@ -75,28 +71,13 @@ export class TransferenciaCadastroService {
       .then(response => response);
   }
 
+    abrirPDF(): Promise<any> {
+      console.warn('sertice.teste()');
 
-
-
-  downloadPDF(): any {
-      return this.http.get('http://localhost:8080/api/image', { responseType: 'blob'}
-
-      );
+      return this.http.get('http://localhost:8080/api/image', { responseType: 'blob'  })
+      // return this.http.get('https://pocapidetran.herokuapp.com/api/image', options)
+        .toPromise()
+          .then(response=> { console.warn(response); return response; });
     }
 
-  abrirPDF(): any {
-
-    console.warn('sertice.teste()');
-
-    const options = { responseType: 'blob'  };
-
-    return this.http.get('http://localhost:8080/api/image', {
-      responseType: 'blob',
-      observe: 'response'
-    }).pipe (
-      map((res: any) => {
-        return new Blob([res.blob()], { type: 'application/pdf' });
-      })
-    );
   }
-}

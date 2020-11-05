@@ -53,7 +53,7 @@ export class TransferenciaPesquisaComponent implements OnInit {
           .then(response => {
             console.warn(response)
               this.consultar();
-              this.messageService.add({severity:'success', summary: response.TestoDaResposta});
+              this.messageService.add({severity:'success', summary: ('Cadastro excluido com sucesso')});
           });
 
       }
@@ -98,7 +98,12 @@ export class TransferenciaPesquisaComponent implements OnInit {
 
     this.transferenciaCadastroService.abrirPDF()
     .then(response => {
-      this.messageService.add({severity:'info', summary:'Espere 30 segundos'});
+
+      console.info('teste() ...');
+      console.warn(response);
+
+
+      this.messageService.add({severity:'info', summary:'Espere 10 segundos'});
       console.info('retorno do metodo: ', response)
 
       const fileURL = URL.createObjectURL(response);
