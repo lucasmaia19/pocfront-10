@@ -21,6 +21,8 @@ import { TableModule } from 'primeng/table';
 import { InputMaskModule } from 'primeng/inputmask';
 import {InputNumberModule} from 'primeng/inputnumber';
 import {InputTextModule} from 'primeng/inputtext';
+import {ProgressBarModule} from 'primeng/progressbar';
+
 
 
 const routes: Routes = [
@@ -51,10 +53,11 @@ const routes: Routes = [
     ConfirmDialogModule,
     InputMaskModule,
     InputNumberModule,
-    InputTextModule
+    InputTextModule,
+    ProgressBarModule
 
   ],
-  providers: [TransferenciaCadastroService, MessageService, ConfirmationService],
+  providers: [TransferenciaCadastroService, MessageService, ConfirmationService, ProgressBarModule],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

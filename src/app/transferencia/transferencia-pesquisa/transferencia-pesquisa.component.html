@@ -1,47 +1,52 @@
 <div class="container">
-  <div class="ui-g">
 
-      <div class="ui-g-12">
-        <h1>Tabela de Transferência de Propriedade de Veículo </h1>
+
+
+  <form #f="ngForm" autocomplete="off">
+    <div class="ui-g">
+
+        <div class="ui-g-12">
+          <h1>Tabela de Transferência de Propriedade de Veículo </h1>
+        </div>
+
+        <div class="card">
+
+          <p-table [value]="cadastros" [paginator]="true" [rows]="3" [showCurrentPageReport]="true"
+              currentPageReportTemplate="" [rowsPerPageOptions]="">
+              <ng-template pTemplate="header">
+                <tr>
+                  <th>Placa</th>
+                  <th>Chassi</th>
+                  <th>Renavam</th>
+                  <th>Nome do Adquirente</th>
+                </tr>
+              </ng-template>
+              <ng-template let-cadastro pTemplate="body" >
+                <tr>
+                      <td>{{cadastro.placa}}</td>
+                      <td>{{cadastro.chassi}}</td>
+                      <td>{{cadastro.renavam}}</td>
+                      <td>{{cadastro.nomeAdquirente}}</td>
+                      <p-button type="button" icon="pi pi-pencil" styleClass="p-button-text" [routerLink]="['/formulario', cadastro.id]"></p-button>
+                      <p-button type="button" icon="pi pi-trash" styleClass="p-button-text" (click)="excluir(cadastro.id)"></p-button>
+                      <p-button type="button" icon="pi pi-file" styleClass="p-button-text" (click)="transferenciaPdf(cadastro)"></p-button>
+                      <p-progressBar mode="indeterminate"></p-progressBar>
+                      <!-- <p-button type="button" icon="pi pi-file" styleClass="p-button-text" [disabled]="f.invalid" (click)="abrirPDF(cadastro)"></p-button> -->
+                  </tr>
+
+              </ng-template>
+              <ng-template  pTemplate="paginatorleft">
+
+              </ng-template>
+              <ng-template let-cadastro="rowData" pTemplate="paginatorright">
+              </ng-template>
+          </p-table>
       </div>
 
-      <div class="card">
+      <div class="ui-g-6 ui-md-12">
+        <a pButton label="Nova Transferencia" routerLink="/formulario"></a>
+      </div>
 
-        <p-table [value]="cadastros" [paginator]="true" [rows]="3" [showCurrentPageReport]="true"
-            currentPageReportTemplate="" [rowsPerPageOptions]="">
-            <ng-template pTemplate="header">
-              <tr>
-                <th>Placa</th>
-                <th>Chassi</th>
-                <th>Renavam</th>
-                <th>Nome do Adquirente</th>
-              </tr>
-            </ng-template>
-            <ng-template let-cadastro pTemplate="body" >
-              <tr>
-                    <td>{{cadastro.placa}}</td>
-                    <td>{{cadastro.chassi}}</td>
-                    <td>{{cadastro.renavam}}</td>
-                    <td>{{cadastro.nomeAdquirente}}</td>
-                    <p-button type="button" icon="pi pi-pencil" styleClass="p-button-text" [routerLink]="['/formulario', cadastro.id]"></p-button>
-                    <p-button type="button" icon="pi pi-trash" styleClass="p-button-text" (click)="excluir(cadastro.id)"></p-button>
-                    <!-- <p-button type="button" icon="pi pi-file" styleClass="p-button-text" (click)="transferenciaPdf(cadastro)"></p-button> -->
-                    <p-button type="button" icon="pi pi-file" styleClass="p-button-text" (click)="abrirPDF(cadastro)"></p-button>
-                </tr>
-
-            </ng-template>
-            <ng-template  pTemplate="paginatorleft">
-
-            </ng-template>
-            <ng-template let-cadastro="rowData" pTemplate="paginatorright">
-            </ng-template>
-        </p-table>
-    </div>
-
-    <div class="ui-g-6 ui-md-12">
-      <a pButton label="Nova Transferencia" routerLink="/formulario"></a>
-    </div>
-
-  </div>
-
+      </div>
+  </form>
 </div>

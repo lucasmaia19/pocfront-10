@@ -64,7 +64,8 @@ export class TransferenciaCadastroComponent implements OnInit {
       this.carregarFormulario(idFormulario);
     } else {
       this.formulario.cnpj = "CNPJ";
-      this.formulario.enderecoCorrespondencia = "Sim"
+      this.formulario.enderecoCorrespondencia = "Sim";
+      this.formulario.alterarCaracteristicas = "Não";
     }
 
     this.consultar();
@@ -99,6 +100,7 @@ export class TransferenciaCadastroComponent implements OnInit {
   }
 
   adicionar(form: FormControl) {
+    console.log("metodo adicionar")
     console.warn('formulario', this.formulario);
     this.transferenciaCadastroService.adicionar( this.formulario )
     .then(cadastros => {

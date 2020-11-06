@@ -26,26 +26,10 @@ export class TransferenciaPesquisaComponent implements OnInit {
     this.consultar();
   }
 
-
-    // excluir(id: number) {
-
-      // console.log(id)
-      // this.transferenciaCadastroService.excluir(id)
-      // .then(() => {
-        // console.log("apagado", id)
-          // this.consultar();
-          // this.messageService.add({severity:'success', summary:'Cadastro excluído com sucesso!'});
-      // });
-
-  // }
-
-
-
-
   excluir(id: number) {
 
     this.confirmationService.confirm({
-      message: 'Tem certeza que deseja excluir???',
+      message: 'Tem certeza que deseja excluir?',
       accept: () => {
           console.log(id)
           this.transferenciaCadastroService.excluir(id)
@@ -90,21 +74,20 @@ export class TransferenciaPesquisaComponent implements OnInit {
         // alert("ABRA O PDF!")
       })
 
+     .catch(erro => this.messageService.add({severity:'error', summary:'ERRO: CONFIRA OS DADOS'}));
       // .catch(erro => this.toasty.error('ERRO: CONFIRA OS DADOS'));
-  }
+    }
 
-  abrirPDF() {
-    console.info('teste() ...');
-
+    abrirPDF() {
+      console.info('teste() ...');
+    this.messageService.add({severity:'info', summary:'Espere 15 segundos'});
     this.transferenciaCadastroService.abrirPDF()
     .then(response => {
 
       console.info('teste() ...');
       console.warn(response);
 
-
-      this.messageService.add({severity:'info', summary:'Espere 10 segundos'});
-      console.info('retorno do metodo: ', response)
+      console.info('retorno do metodo "abrirPDF": ', response)
 
       const fileURL = URL.createObjectURL(response);
       window.open(fileURL, '_blank');
@@ -112,6 +95,7 @@ export class TransferenciaPesquisaComponent implements OnInit {
     })
 
     // .catch(erro => this.toasty.error('ERRO: ERROR AO ABRIR PDF'));
+    .catch(erro => this.messageService.add({severity:'error', summary:'ERRO: ABRIR PDF'}));
 
   }
 

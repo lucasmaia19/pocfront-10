@@ -11,6 +11,7 @@ export class TransferenciaCadastroService {
   transferenciaUrl: string
 
   constructor(private http: HttpClient) {
+
     this.transferenciaUrl =  `${environment.apiUrl}`;
   }
 
