@@ -5,6 +5,7 @@
   <form #f="ngForm" autocomplete="off">
     <div class="ui-g">
 
+      <p-progressBar mode="indeterminate"></p-progressBar>
         <div class="ui-g-12">
           <h1>Tabela de Transferência de Propriedade de Veículo </h1>
         </div>
@@ -30,7 +31,6 @@
                       <p-button type="button" icon="pi pi-pencil" styleClass="p-button-text" [routerLink]="['/formulario', cadastro.id]"></p-button>
                       <p-button type="button" icon="pi pi-trash" styleClass="p-button-text" (click)="excluir(cadastro.id)"></p-button>
                       <p-button type="button" icon="pi pi-file" styleClass="p-button-text" (click)="transferenciaPdf(cadastro)"></p-button>
-                      <p-progressBar mode="indeterminate"></p-progressBar>
                       <!-- <p-button type="button" icon="pi pi-file" styleClass="p-button-text" [disabled]="f.invalid" (click)="abrirPDF(cadastro)"></p-button> -->
                   </tr>
 
