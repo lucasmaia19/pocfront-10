@@ -1,12 +1,13 @@
 <div class="container">
 
-
-
-  <form #f="ngForm" autocomplete="off">
+  <form #cadastro="ngForm" (ngSubmit)="transferenciaPdf(cadastro)">
     <div class="ui-g">
 
-      <p-progressBar mode="indeterminate"></p-progressBar>
-        <div class="ui-g-12">
+      <div class="p-field p-col-6 p-md-12" [hidden]="!requestProgress">
+        <p-progressBar mode="indeterminate" [style]="{'height': '6px'}"></p-progressBar>
+      </div>
+
+        <div class="p-field">
           <h1>Tabela de Transferência de Propriedade de Veículo </h1>
         </div>
 
@@ -28,9 +29,10 @@
                       <td>{{cadastro.chassi}}</td>
                       <td>{{cadastro.renavam}}</td>
                       <td>{{cadastro.nomeAdquirente}}</td>
-                      <p-button type="button" icon="pi pi-pencil" styleClass="p-button-text" [routerLink]="['/formulario', cadastro.id]"></p-button>
+                      <p-button type="button" icon="pi pi-pencil" styleClass="p-button-text"  [routerLink]="['/formulario', cadastro.id]"></p-button>
                       <p-button type="button" icon="pi pi-trash" styleClass="p-button-text" (click)="excluir(cadastro.id)"></p-button>
                       <p-button type="button" icon="pi pi-file" styleClass="p-button-text" (click)="transferenciaPdf(cadastro)"></p-button>
+                      <p-button type="button" icon="pi pi-info-circle" styleClass="p-button-text" [disabled]="requestProgress" (click)="debug()"></p-button>
                       <!-- <p-button type="button" icon="pi pi-file" styleClass="p-button-text" [disabled]="f.invalid" (click)="abrirPDF(cadastro)"></p-button> -->
                   </tr>
 
@@ -43,7 +45,7 @@
           </p-table>
       </div>
 
-      <div class="ui-g-6 ui-md-12">
+      <div class="p-field p-col-6 p-md-3">
         <a pButton label="Nova Transferencia" routerLink="/formulario"></a>
       </div>
 

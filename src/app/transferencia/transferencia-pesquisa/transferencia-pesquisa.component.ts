@@ -13,6 +13,8 @@ export class TransferenciaPesquisaComponent implements OnInit {
 
   cadastros = new Array<Transferencia>();
 
+  requestProgress = false;
+
   constructor(
     private transferenciaCadastroService: TransferenciaCadastroService,
     private messageService: MessageService,
@@ -23,6 +25,9 @@ export class TransferenciaPesquisaComponent implements OnInit {
    }
 
   ngOnInit() {
+
+
+
     this.consultar();
   }
 
@@ -74,7 +79,7 @@ export class TransferenciaPesquisaComponent implements OnInit {
         // alert("ABRA O PDF!")
       })
 
-     .catch(erro => this.messageService.add({severity:'error', summary:'ERRO: CONFIRA OS DADOS'}));
+     .catch(erro => this.messageService.add({severity:'error', summary:'ERRO: PREENCHIMENTO DE DADOS'}));
       // .catch(erro => this.toasty.error('ERRO: CONFIRA OS DADOS'));
     }
 
@@ -96,6 +101,30 @@ export class TransferenciaPesquisaComponent implements OnInit {
 
     // .catch(erro => this.toasty.error('ERRO: ERROR AO ABRIR PDF'));
     .catch(erro => this.messageService.add({severity:'error', summary:'ERRO: ABRIR PDF'}));
+
+  }
+
+  debug() {
+
+    if (this.requestProgress) {
+      return;
+    }
+
+    console.log("requisicao iniciada...");
+    this.requestProgress = true;
+
+    this.transferenciaCadastroService.debug()
+
+      /*
+      .then(response => {
+        console.log("requisicao concluida! " + response)
+        this.requestProgress = false;
+      })
+      */
+
+      .then(response => console.log("requisicao concluida! " + response))
+      .catch(erro => console.error("Erro na requisição: " + erro))
+      .finally(() => this.requestProgress = false)
 
   }
 

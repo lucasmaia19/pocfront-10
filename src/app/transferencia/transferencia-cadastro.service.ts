@@ -81,4 +81,11 @@ export class TransferenciaCadastroService {
           .then(response=> { console.warn(response); return response; });
     }
 
+    debug(): Promise<any> {
+      return this.http.get('http://localhost:8080/api/debug', {responseType: "text"})
+      .toPromise()
+      .then( response => {return response} )
+
+    }
+
   }
