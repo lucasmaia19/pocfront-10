@@ -1,3 +1,4 @@
+import { Router } from '@angular/router';
 import { Transferencia } from './../../model/transferencia.model';
 import { TransferenciaCadastroService } from '../transferencia-cadastro.service';
 import { MessageService, ConfirmationService } from 'primeng/api';
@@ -13,26 +14,30 @@ export class TransferenciaPesquisaComponent implements OnInit {
 
   cadastros = new Array<Transferencia>();
 
+  cadastro = Transferencia
+
   requestProgress = false;
 
   constructor(
     private transferenciaCadastroService: TransferenciaCadastroService,
     private messageService: MessageService,
-    private confirmationService: ConfirmationService
-    //private notif: NotificationsService
+    private confirmationService: ConfirmationService,
+    private router: Router,
   ) {
 
    }
 
   ngOnInit() {
-
-
-
     this.consultar();
   }
 
   excluir(id: number) {
 
+    if (this.requestProgress) {
+      return;
+    }
+
+    this.requestProgress = true;
     this.confirmationService.confirm({
       message: 'Tem certeza que deseja excluir?',
       accept: () => {
@@ -42,28 +47,40 @@ export class TransferenciaPesquisaComponent implements OnInit {
           .then(response => {
             console.warn(response)
               this.consultar();
-              this.messageService.add({severity:'success', summary: ('Cadastro excluido com sucesso')});
-          });
-
-      }
-    })
+              this.messageService.add({severity:'success', summary: ('Cadastro excluido com sucesso')})
+            });
+          }
+        })
+        this.requestProgress = false;
 
   }
 
   consultar() {
+
+    if (this.requestProgress) {
+      return;
+    }
+
     console.log("fui chamado")
+    this.requestProgress = true;
     this.transferenciaCadastroService.consultar()
       .then((dados: Transferencia[]) => {
 
-        // console.error(dados);
-
         this.cadastros = dados;
     })
+    .then(response => console.log("requisicao concluida! " + response))
+    .catch(erro => this.messageService.add({severity:'error', summary:'ERRO: PUXAR DADOS'}))
+    .finally(() => this.requestProgress = false);
   }
 
   transferenciaPdf(transferencia: Transferencia) {
 
+    if (this.requestProgress) {
+      return;
+    }
+
     console.log('transferenciaPdf executado ...');
+    this.requestProgress = true;
     this.messageService.add({severity:'info', summary:'PDF Sendo Gerado, ESPERE'});
     // this.toasty.success('PDF SENDO GERADO, ESPERE!');
     // alert("PDF SENDO GERADO");
@@ -71,21 +88,26 @@ export class TransferenciaPesquisaComponent implements OnInit {
 
     this.transferenciaCadastroService.transferenciaPdf(transferencia)
       .then(response => {
-        console.info('retorno do metodo: ', this.abrirPDF())
-
-
-        // this.toasty.success('PDF GERADO!')
-        // this.toasty.success('AGUARDE!')
-        // alert("ABRA O PDF!")
+        this.abrirPDF();
+        console.info('retorno do metodo: ', response)
+        this.requestProgress = false;
       })
 
-     .catch(erro => this.messageService.add({severity:'error', summary:'ERRO: PREENCHIMENTO DE DADOS'}));
-      // .catch(erro => this.toasty.error('ERRO: CONFIRA OS DADOS'));
+      .then(response => console.log("requisicao concluida! " + response))
+      .catch(erro => this.messageService.add({severity:'error', summary:'ERRO: PREENCHIMENTO DE DADOS'}))
+      .finally(() => this.requestProgress = false);
+
     }
 
     abrirPDF() {
-      console.info('teste() ...');
-    this.messageService.add({severity:'info', summary:'Espere 15 segundos'});
+
+      if (this.requestProgress) {
+        return;
+      }
+
+    console.info('teste() ...');
+    this.requestProgress = true;
+    // this.messageService.add({severity:'info', summary:'Espere 15 segundos'});
     this.transferenciaCadastroService.abrirPDF()
     .then(response => {
 
@@ -98,9 +120,9 @@ export class TransferenciaPesquisaComponent implements OnInit {
       window.open(fileURL, '_blank');
 
     })
-
-    // .catch(erro => this.toasty.error('ERRO: ERROR AO ABRIR PDF'));
-    .catch(erro => this.messageService.add({severity:'error', summary:'ERRO: ABRIR PDF'}));
+    .then(response => console.log("requisicao concluida! " + response))
+    .catch(erro => this.messageService.add({severity:'error', summary:'ERRO: ABRIR PDF'}))
+    .finally(() => this.requestProgress = false);
 
   }
 

@@ -29,11 +29,11 @@
                       <td>{{cadastro.chassi}}</td>
                       <td>{{cadastro.renavam}}</td>
                       <td>{{cadastro.nomeAdquirente}}</td>
-                      <p-button type="button" icon="pi pi-pencil" styleClass="p-button-text"  [routerLink]="['/formulario', cadastro.id]"></p-button>
-                      <p-button type="button" icon="pi pi-trash" styleClass="p-button-text" (click)="excluir(cadastro.id)"></p-button>
-                      <p-button type="button" icon="pi pi-file" styleClass="p-button-text" (click)="transferenciaPdf(cadastro)"></p-button>
-                      <p-button type="button" icon="pi pi-info-circle" styleClass="p-button-text" [disabled]="requestProgress" (click)="debug()"></p-button>
-                      <!-- <p-button type="button" icon="pi pi-file" styleClass="p-button-text" [disabled]="f.invalid" (click)="abrirPDF(cadastro)"></p-button> -->
+                      <p-button type="button" icon="pi pi-pencil" styleClass="p-button-text"  [disabled]="requestProgress" [routerLink]="['/formulario', cadastro.id]"></p-button>
+                      <p-button type="button" icon="pi pi-trash" styleClass="p-button-text" [disabled]="requestProgress" (click)="excluir(cadastro.id)"></p-button>
+                      <!-- <p-button type="button" icon="pi pi-file" styleClass="p-button-text" [disabled]="requestProgress" (click)="abrirPDF()"></p-button> -->
+                      <p-button type="button" icon="pi pi-file" styleClass="p-button-text" [disabled]="requestProgress" (click)="transferenciaPdf(cadastro)"></p-button>
+                      <!-- <p-button type="button" icon="pi pi-info-circle" styleClass="p-button-text" [disabled]="requestProgress" (click)="debug()"></p-button> -->
                   </tr>
 
               </ng-template>
@@ -46,7 +46,7 @@
       </div>
 
       <div class="p-field p-col-6 p-md-3">
-        <a pButton label="Nova Transferencia" routerLink="/formulario"></a>
+        <p-button label="Nova Transferencia" [disabled]="requestProgress" routerLink="/formulario"></p-button>
       </div>
 
       </div>

@@ -22,7 +22,7 @@ import { InputMaskModule } from 'primeng/inputmask';
 import {InputNumberModule} from 'primeng/inputnumber';
 import {InputTextModule} from 'primeng/inputtext';
 import {ProgressBarModule} from 'primeng/progressbar';
-
+import {CalendarModule} from 'primeng/calendar';
 
 
 const routes: Routes = [
@@ -54,7 +54,8 @@ const routes: Routes = [
     InputMaskModule,
     InputNumberModule,
     InputTextModule,
-    ProgressBarModule
+    ProgressBarModule,
+    CalendarModule,
 
   ],
   providers: [TransferenciaCadastroService, MessageService, ConfirmationService, ProgressBarModule],
