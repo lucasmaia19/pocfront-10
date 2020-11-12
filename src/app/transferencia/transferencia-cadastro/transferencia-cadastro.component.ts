@@ -83,6 +83,7 @@ export class TransferenciaCadastroComponent implements OnInit {
       this.formulario.cnpj = "CNPJ";
       this.formulario.enderecoCorrespondencia = "Sim";
       this.formulario.alterarCaracteristicas = "Não";
+      // this.formulario.valorRecebido = this.formulario.valorRecebido + ",00";
     }
 
     this.consultar();
@@ -144,18 +145,15 @@ export class TransferenciaCadastroComponent implements OnInit {
     //  console.info(dataLeilao.toDate());
 
 
-     let valorRecebido = formulario.valorRecebido;
-     console.info("valor recebido :", valorRecebido)
-     console.info(valorRecebido)
+    //  let valorRecebido = formulario.valorRecebido;
+    //  console.info("valor recebido :", valorRecebido)
 
-     let valorRecebidoformat = Number(valorRecebido)
-     console.info("valor recebido: ", valorRecebidoformat)
-     console.info(valorRecebidoformat)
+    //  let valorRecebidoformat = Number(valorRecebido)
+    //  console.info("valor recebido: ", valorRecebidoformat)
 
-    valorRecebidoformat = formulario.valorRecebido
+    // valorRecebidoformat = formulario.valorRecebido
 
-     this.formulario = formulario;
-
+    //  this.formulario = formulario;
 
     //  console.info("data tipo Date: " + dataAquisicaoFormatoDate.getDate() + "/" + (dataAquisicaoFormatoDate.getMonth() + 1) + "/" + dataAquisicaoFormatoDate.getFullYear());
 
