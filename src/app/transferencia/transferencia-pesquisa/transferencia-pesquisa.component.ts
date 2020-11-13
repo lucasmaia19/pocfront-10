@@ -90,7 +90,8 @@ export class TransferenciaPesquisaComponent implements OnInit {
       .then(response => {
         this.abrirPDF();
         console.info('retorno do metodo: ', response)
-        this.requestProgress = false;
+        this.messageService.add({severity:'success', summary:'PDF Gerado!'});
+        // this.requestProgress = false;
       })
 
       .then(response => console.log("requisicao concluida! " + response))
@@ -101,12 +102,12 @@ export class TransferenciaPesquisaComponent implements OnInit {
 
     abrirPDF() {
 
-      if (this.requestProgress) {
-        return;
-      }
+      // if (this.requestProgress) {
+      //   return;
+      // }
 
     console.info('teste() ...');
-    this.requestProgress = true;
+    // this.requestProgress = true;
     // this.messageService.add({severity:'info', summary:'Espere 15 segundos'});
     this.transferenciaCadastroService.abrirPDF()
     .then(response => {

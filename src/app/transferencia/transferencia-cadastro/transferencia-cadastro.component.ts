@@ -83,7 +83,6 @@ export class TransferenciaCadastroComponent implements OnInit {
       this.formulario.cnpj = "CNPJ";
       this.formulario.enderecoCorrespondencia = "Sim";
       this.formulario.alterarCaracteristicas = "Não";
-      // this.formulario.valorRecebido = this.formulario.valorRecebido + ",00";
     }
 
     this.consultar();
@@ -153,7 +152,7 @@ export class TransferenciaCadastroComponent implements OnInit {
 
     // valorRecebidoformat = formulario.valorRecebido
 
-    //  this.formulario = formulario;
+     this.formulario = formulario;
 
     //  console.info("data tipo Date: " + dataAquisicaoFormatoDate.getDate() + "/" + (dataAquisicaoFormatoDate.getMonth() + 1) + "/" + dataAquisicaoFormatoDate.getFullYear());
 
@@ -210,9 +209,5 @@ export class TransferenciaCadastroComponent implements OnInit {
         this.messageService.add({severity:'success', summary:'Cadastro Atualizado com Sucesso!'});
       });
   }
-
-  cnpjj = [
-    { label: 'CNPJ', value: 0 }
-  ];
 
 }
