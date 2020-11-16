@@ -82,16 +82,13 @@ export class TransferenciaPesquisaComponent implements OnInit {
     console.log('transferenciaPdf executado ...');
     this.requestProgress = true;
     this.messageService.add({severity:'info', summary:'PDF Sendo Gerado, ESPERE'});
-    // this.toasty.success('PDF SENDO GERADO, ESPERE!');
-    // alert("PDF SENDO GERADO");
     console.log(transferencia);
 
     this.transferenciaCadastroService.transferenciaPdf(transferencia)
       .then(response => {
         this.abrirPDF();
         console.info('retorno do metodo: ', response)
-        this.messageService.add({severity:'success', summary:'PDF Gerado!'});
-        // this.requestProgress = false;
+        this.messageService.add({severity:'success', summary:'PDF Gerado, ESPERE ABRIR'});
       })
 
       .then(response => console.log("requisicao concluida! " + response))
@@ -102,13 +99,7 @@ export class TransferenciaPesquisaComponent implements OnInit {
 
     abrirPDF() {
 
-      // if (this.requestProgress) {
-      //   return;
-      // }
-
     console.info('teste() ...');
-    // this.requestProgress = true;
-    // this.messageService.add({severity:'info', summary:'Espere 15 segundos'});
     this.transferenciaCadastroService.abrirPDF()
     .then(response => {
 
@@ -137,13 +128,6 @@ export class TransferenciaPesquisaComponent implements OnInit {
     this.requestProgress = true;
 
     this.transferenciaCadastroService.debug()
-
-      /*
-      .then(response => {
-        console.log("requisicao concluida! " + response)
-        this.requestProgress = false;
-      })
-      */
 
       .then(response => console.log("requisicao concluida! " + response))
       .catch(erro => console.error("Erro na requisição: " + erro))

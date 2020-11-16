@@ -47,7 +47,6 @@ export class Formulario {
 export class TransferenciaCadastroComponent implements OnInit {
 
   cadastros = new Array<Formulario>();
-  //cadastros: Formulario[];
 
   formulario = new Formulario();
 
@@ -105,29 +104,6 @@ export class TransferenciaCadastroComponent implements OnInit {
     this.transferenciaCadastroService.consultarId(id)
     .then(formulario => {
 
-      //"23051985" > "23/05/1985"
-      //"23051985" > Date > "23/05/1985"
-      //"23/05/1985" > Date > "1985-05-23"
-      //"23/05/1985" > Date > "1985-05-23"
-
-      //"23051985" >  Date;
-
-      //console.log(formulario);
-
-      /*
-      console.log(formulario.dataAquisicao);
-
-      let dataAquisicao = moment(formulario.dataAquisicao, "DDMMYYYY");
-
-      console.log(dataAquisicao);
-
-      console.log("Dia: " + dataAquisicao.date() + ", Mes: " + dataAquisicao.month() + ", Ano: " + dataAquisicao.year());
-
-      console.log(dataAquisicao.format("DD/MM/YYYY"))
-
-      console.log(dataAquisicao.format("YYYY"))
-      */
-
      let dataAquisicao = moment(formulario.dataAquisicao, "DDMMYYYY");
      console.info("data tipo Moment aquisicao: " + dataAquisicao.format("DD/MM/YYYY"));
      formulario.dataAquisicao = dataAquisicao.toDate();
@@ -136,35 +112,9 @@ export class TransferenciaCadastroComponent implements OnInit {
      console.info("data tipo moment leilao: " + dataLeilao.format("DD/MM/YYYY"));
      formulario.dataLeilao = dataLeilao.toDate();
 
-
-    //  console.info("data tipo moment leilao: " + dataLeilao);
-    //  console.info(dataLeilao);
-
-    //  console.info("data tipo moment leilao toDate(): " + dataLeilao.toDate());
-    //  console.info(dataLeilao.toDate());
-
-
-    //  let valorRecebido = formulario.valorRecebido;
-    //  console.info("valor recebido :", valorRecebido)
-
-    //  let valorRecebidoformat = Number(valorRecebido)
-    //  console.info("valor recebido: ", valorRecebidoformat)
-
-    // valorRecebidoformat = formulario.valorRecebido
+     console.info(formulario.valorRecebido)
 
      this.formulario = formulario;
-
-    //  console.info("data tipo Date: " + dataAquisicaoFormatoDate.getDate() + "/" + (dataAquisicaoFormatoDate.getMonth() + 1) + "/" + dataAquisicaoFormatoDate.getFullYear());
-
-    //  let mesComZeros = (dataAquisicaoFormatoDate.getMonth() + 1);
-    //  let mescomZeroString = "";
-    //  if (mesComZeros < 10)
-      //  mescomZeroString = "0" + mesComZeros;
-    //  else
-      //  mescomZeroString = mesComZeros + "";
-
-    //  console.info("data tipo Date: " + dataAquisicaoFormatoDate.getDate() + "/" + mescomZeroString + "/" + dataAquisicaoFormatoDate.getFullYear());
-
     })
   }
 
@@ -181,9 +131,7 @@ export class TransferenciaCadastroComponent implements OnInit {
     console.warn('formulario', this.formulario);
     this.transferenciaCadastroService.adicionar( this.formulario )
     .then(cadastros => {
-      // this.toasty.success(`CADASTRO COM A PLACA "${cadastros.placa}" ADICIONADO`);
       this.messageService.add({severity:'success', summary:'Cadastro adicionado com sucesso!'});
-      // alert(`Cadastro "${cadastros.placa}" adicionado com o cod ${cadastros.id}`);
       this.consultar();
 
       this.router.navigate(['']);
@@ -194,14 +142,6 @@ export class TransferenciaCadastroComponent implements OnInit {
     console.log("id component", this.formulario)
 
     console.warn("this.formulario.dataAquisicao", this.formulario.dataAquisicao)
-
-    //this.formulario.dataAquisicao
-    //let dataAquisicaoMoment = moment(this.formulario.dataAquisicao);
-    //let dataAquisicaoFormatada = dataAquisicaoMoment.format("DDMMYYYY");
-    //this.formulario.dataAquisicao = dataAquisicaoFormatada;
-
-    //let dataAquisicao = moment(formulario.dataAquisicao, "DDMMYYYY");
-    //console.info("data tipo Moment: " + dataAquisicao.format("DD/MM/YYYY"));
 
     this.transferenciaCadastroService.atualizar(this.formulario)
       .then(() => {

@@ -21,12 +21,6 @@
         <p-inputMask type="text" mask="99999999999" name="renavam" #renavam [(ngModel)]="formulario.renavam" required></p-inputMask>
       </div>
 
-      <!-- <div class="p-field p-col-6 p-md-3">
-        <label>Valor Recebido*</label>
-        <input pInputText type="text" name="valorRecebido"
-          #valorRecebido [(ngModel)]="formulario.valorRecebido" placeholder="exemplo: 1000,00" required>
-      </div> -->
-
       <div class="p-field p-col-6 p-md-3">
         <label>Valor Recebido*</label>
         <p-inputNumber mode="currency" currency="BRL" locale="pt-BR" [minFractionDigits]="2"
@@ -36,7 +30,6 @@
       <div class="p-field p-col-6 p-md-3">
         <label>Data Aquisição:*</label>
         <p-calendar type="text" [locale]="pt" name="DataAquisicao" dateFormat="dd/mm/yy" #dataAquisicao [(ngModel)]="formulario.dataAquisicao" required></p-calendar>
-        <!-- <p-inputMask type="text" name="DataAquisicao" mask="99999999" dateFormat="dd/mm/yy" #dataAquisicao [(ngModel)]="formulario.dataAquisicao"  placeholder="exemplo: 15012020" required></p-inputMask> -->
       </div>
 
       <div class="p-field p-col-6 p-md-3">
@@ -186,12 +179,7 @@
 
       <div class="p-field p-col-12 p-md-12"></div>
 
-      <!-- <div class="p-field p-col-2 p-md-2">
-        <button pButton type="submit" label="Cadastrar" (click)="adicionar(null)"></button>
-        <button pButton type="submit" label="Cadastrar" [disabled]="f.invalid"></button>
-      </div> -->
       <div class="p-field p-col-2 p-md-2">
-        <!-- <button pButton type="submit" label="Salvar" (click)="salvar(null)"></button> -->
         <button pButton type="submit" label="Salvar" [disabled]="f.invalid"></button>
       </div>
 

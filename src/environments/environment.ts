@@ -5,6 +5,6 @@
 
 export const environment = {
   production: false,
-  apiUrl: 'http://localhost:8080/api/transferencia-pdf'
-  // apiUrl:'https://pocapidetran.herokuapp.com/api/transferencia-pdf'
+  // apiUrl: 'http://localhost:8080/api/transferencia-pdf'
+  apiUrl:'https://pocapidetran.herokuapp.com/api/transferencia-pdf'
 };

@@ -13,7 +13,6 @@ import { NgModule } from '@angular/core';
     ButtonModule,
     TableModule,
 
-    // RouterModule,
     ],
 declarations: [
               ],
