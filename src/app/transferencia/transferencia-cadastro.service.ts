@@ -16,7 +16,7 @@ export class TransferenciaCadastroService {
   }
 
   consultar(): Promise<any> {
-    return this.http.get('https://pocapidetran.herokuapp.com/api')
+    return this.http.get('https://pocapidetran.herokuapp.com/api/')
     .toPromise()
     .then(response => {return response});
   }

@@ -112,6 +112,8 @@ export class TransferenciaCadastroComponent implements OnInit {
      console.info("data tipo moment leilao: " + dataLeilao.format("DD/MM/YYYY"));
      formulario.dataLeilao = dataLeilao.toDate();
 
+
+
      console.info(formulario.valorRecebido)
 
      this.formulario = formulario;
